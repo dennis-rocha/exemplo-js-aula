@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  
+  deploy:
+    name: Deploy da aplicação
+    runs-on: self-hosted
+    
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Realizar deploy
+        run: |
+          cd /home/newuser/exemplo-js-aula
+          git pull
